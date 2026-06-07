@@ -160,4 +160,18 @@ description: |
 
 ---
 ## 版本
+- v1.1 | 2026-06-07 | R2: 批量部署+部署历史
 - v1.0 | 2026-06-07 | 初始版本(收费产品级) | 原因: 系统级skill需要独立GitHub仓库+CI验证+专业README
+## R2增强: 批量部署 + 部署历史追踪
+
+### 批量部署模式
+触发: "批量部署" / "部署所有系统skill"
+自动扫描 `C:\Users\董辉\.agents\skills\` 和 `D:\_ai\skills\` → 筛选已通过 skill-review 门禁的 skill → 逐个部署
+输出汇总: Skill | 仓库 | 状态 | 版本
+
+### 部署历史
+每次部署记录到 `D:\KnowledgeBase\_logs\ledger\DEPLOY_HISTORY.md`:
+```
+[YYYY-MM-DD HH:MM] skill-name vX.X → songxrui/skill-name ✅ | 门禁: 6/6
+```
+用途: 追溯部署时间线、检测需要更新的仓库
